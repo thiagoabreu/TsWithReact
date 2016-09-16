@@ -1,0 +1,21 @@
+{
+  "name": "ts-react-learning",
+  "version": "1.0.0",
+  "description": "Just a TypeScript + React app",
+  "main": "./dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thiago Jedi Abreu <thiagoa7@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "material-ui": "^0.15.4",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2"
+  }
+}
