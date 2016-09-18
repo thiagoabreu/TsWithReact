@@ -9,18 +9,18 @@ import * as ReactDOM from "react-dom";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 import Hello from "./components/Hello";
-import AlertaExemplo from "./components/Alerta"; 
+import AlertExample from "./components/Alerta"; 
 
 ReactDOM.render(
-    <Hello compilador="TS" ferramenta="ReacT" ></Hello>,
+    <Hello compiler="TypeScript" framework="React.js" ></Hello>,
     document.getElementById("example")
 );
 
 ReactDOM.render(
     <MuiThemeProvider>
-        <AlertaExemplo mensagem="Wagner é legal" ></AlertaExemplo>
+        <AlertExample message="This is a alert with Material-UI" ></AlertExample>
     </MuiThemeProvider>,
-    document.querySelector("#testeDialog")
+    document.querySelector("#testDialog")
 );
 
 

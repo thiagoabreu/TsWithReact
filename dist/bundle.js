@@ -54,8 +54,8 @@
 	var MuiThemeProvider_1 = __webpack_require__(3);
 	var Hello_1 = __webpack_require__(161);
 	var Alerta_1 = __webpack_require__(162);
-	ReactDOM.render(React.createElement(Hello_1.default, {compilador: "TS", ferramenta: "ReacT"}), document.getElementById("example"));
-	ReactDOM.render(React.createElement(MuiThemeProvider_1.default, null, React.createElement(Alerta_1.default, {mensagem: "Wagner é legal"})), document.querySelector("#testeDialog"));
+	ReactDOM.render(React.createElement(Hello_1.default, {compiler: "TypeScript", framework: "React.js"}), document.getElementById("example"));
+	ReactDOM.render(React.createElement(MuiThemeProvider_1.default, null, React.createElement(Alerta_1.default, {message: "This is a alert with Material-UI"})), document.querySelector("#testDialog"));
 
 
 /***/ },
@@ -5612,7 +5612,7 @@
 	};
 	
 	function flexboxOld(property, value) {
-	  if (property === 'flexDirection') {
+	  if (property === 'flexDirection' && typeof value === 'string') {
 	    return {
 	      WebkitBoxOrient: value.indexOf('column') > -1 ? 'vertical' : 'horizontal',
 	      WebkitBoxDirection: value.indexOf('reverse') > -1 ? 'reverse' : 'normal'
@@ -6798,7 +6798,7 @@
 	    if (!keepUnprefixed && !Array.isArray(styles[property])) {
 	      delete styles[property];
 	    }
-	    if (property === 'flexDirection') {
+	    if (property === 'flexDirection' && typeof value === 'string') {
 	      return {
 	        WebkitBoxOrient: value.indexOf('column') > -1 ? 'vertical' : 'horizontal',
 	        WebkitBoxDirection: value.indexOf('reverse') > -1 ? 'reverse' : 'normal'
@@ -7086,6 +7086,7 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var React = __webpack_require__(1);
+	// Use this if you don't want to use classes:
 	// export function Hello(props: HelloProps) {
 	//     return <h1>Hello world, with {props.compiler} and {props.framework}!</h1>
 	// }
@@ -7095,7 +7096,7 @@
 	        _super.apply(this, arguments);
 	    }
 	    Hello.prototype.render = function () {
-	        return React.createElement("h1", null, "Hello world, with ", this.props.compilador, " and ", this.props.ferramenta, "!");
+	        return React.createElement("h1", null, "Hello world, with ", this.props.compiler, " and ", this.props.framework, "!");
 	    };
 	    return Hello;
 	}(React.Component));
@@ -7117,31 +7118,39 @@
 	var Dialog_1 = __webpack_require__(163);
 	var FlatButton_1 = __webpack_require__(213);
 	var RaisedButton_1 = __webpack_require__(229);
-	var AlertaExemplo = (function (_super) {
-	    __extends(AlertaExemplo, _super);
-	    function AlertaExemplo() {
+	/**
+	 * A example or what should be Alert Dialog from Material UI.
+	 */
+	var AlertExample = (function (_super) {
+	    __extends(AlertExample, _super);
+	    function AlertExample() {
 	        var _this = this;
 	        _super.apply(this, arguments);
-	        this.state = { aberto: false };
+	        this.state = { opened: false };
+	        /**
+	         * Handler for when the dialog should open
+	         */
 	        this.handleOpen = function () {
-	            _this.setState({ aberto: true });
+	            _this.setState({ opened: true });
 	        };
+	        /**
+	         * Handler for when the dialog should close
+	         */
 	        this.handleClose = function () {
-	            _this.setState({ aberto: false });
+	            _this.setState({ opened: false });
 	        };
 	    }
-	    AlertaExemplo.prototype.render = function () {
-	        var Acoes = [
+	    AlertExample.prototype.render = function () {
+	        var Actions = [
 	            React.createElement(FlatButton_1.default, {label: "Cancel", primary: true, onClick: this.handleClose}),
-	            React.createElement(FlatButton_1.default, {label: "Descartar", primary: true, onClick: this.handleClose}),
-	            React.createElement(FlatButton_1.default, {label: "Wagner", primary: false})
+	            React.createElement(FlatButton_1.default, {label: "Discard", primary: true, onClick: this.handleClose})
 	        ];
-	        return (React.createElement("div", null, React.createElement(RaisedButton_1.default, {label: "Alerta", onClick: this.handleOpen}), React.createElement(Dialog_1.default, {actions: Acoes, modal: false, open: this.state.aberto, onRequestClose: this.handleClose}, this.props.mensagem)));
+	        return (React.createElement("div", null, React.createElement(RaisedButton_1.default, {label: "Alert", onClick: this.handleOpen}), React.createElement(Dialog_1.default, {actions: Actions, modal: false, open: this.state.opened, onRequestClose: this.handleClose}, this.props.message)));
 	    };
-	    return AlertaExemplo;
+	    return AlertExample;
 	}(React.Component));
 	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = AlertaExemplo;
+	exports.default = AlertExample;
 
 
 /***/ },
